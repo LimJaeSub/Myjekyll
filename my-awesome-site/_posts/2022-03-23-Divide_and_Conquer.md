@@ -64,7 +64,14 @@ const mergeSort = ()=>{
         // 길이가 1이면 그대로 리턴
     }
     else if(array.length>=2){
-
+        const middleIndex = Math.floor(array.length / 2);
+	    const left = array.slice(0, middleIndex);
+	    const right = array.slice(middleIndex);
+        //중앙값을 구해서 slice로 좌/우를 나눈다
+        //floor : 해당 값을 반환
+        //slice : 해당 수만큼 배열 나눔
     }
+
+    return merge(mergeSort(left), mergeSort(right));
 }
 ```
