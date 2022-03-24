@@ -75,3 +75,62 @@ const mergeSort = ()=>{
     return merge(mergeSort(left), mergeSort(right));
 }
 ```
+
+### merge(left,right)
+
+함수의 조건
+
+> 두 입력값을 비교 후 작으면 왼쪽 크면 오른쪽에 push한다.
+
+```
+const merge = function (left, right) { // 정렬된 왼쪽과 오른쪽 배열을 받아서 하나로 합치는 함수
+	// left, right already sorted
+	const result = [];
+	while (left.length !== 0 && right.length !== 0) {
+		left[0] <= right[0] ? result.push(left.shift()) : result.push(right.shift());
+	}
+
+	return [...result, ...left, ...right]; // 아래 세줄과 같은 역할을 하는 코드
+    // if(left.length === 0) results.push(...right);
+    // if(right.length === 0) results.push(...left);
+    // return results;
+}
+```
+
+# 이진 탐색 알고리즘
+
+> 데이터가 정렬되어 있는 상태에서 특정한 값을 찾아내는 알고리즘.
+> list의 중간 숫자와 비교한다 (up-down 게임과 비슷)
+> 이진 탐색을 사용하면 최대 <log n> 번만에 답 찾기 가능
+>
+> ### 이진 탐색의 조건
+>
+> > 반드시 데이터가 sort되있어야만 한다.
+
+<br>
+<br>
+<br>
+<br>
+
+### 이진탐색 알고리즘 with javascript
+
+```
+
+function binarySearch (target, dataArray) {
+    let low = 0;
+    let high = dataArray.length - 1;
+    let mid = Math.floor((high + low) / 2);
+    while (target !== dataArray[mid]) {
+        if (target < dataArray[mid]) {
+            high = mid - 1;
+            mid = Math.floor((high + low) / 2);
+        }
+        else {
+            low = mid + 1;
+            mid = Math.floor((high + low) / 2);
+        }
+        }
+    return dataArray[mid];
+}
+
+```
