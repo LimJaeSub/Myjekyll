@@ -96,3 +96,41 @@ const merge = function (left, right) { // 정렬된 왼쪽과 오른쪽 배열�
     // return results;
 }
 ```
+
+# 이진 탐색 알고리즘
+
+> 데이터가 정렬되어 있는 상태에서 특정한 값을 찾아내는 알고리즘.
+> list의 중간 숫자와 비교한다 (up-down 게임과 비슷)
+> 이진 탐색을 사용하면 최대 <log n> 번만에 답 찾기 가능 --> 최악의 경우 전부 비교해야할 경우가 발생할 수 있음.
+>
+> ### 이진 탐색의 조건
+>
+> > 반드시 데이터가 sort되있어야만 한다.
+
+<br>
+<br>
+<br>
+<br>
+
+### 이진탐색 알고리즘 with javascript
+
+```
+
+function binarySearch (target, dataArray) {
+    let low = 0;
+    let high = dataArray.length - 1;
+    let mid = Math.floor((high + low) / 2);
+    while (target !== dataArray[mid]) {
+        if (target < dataArray[mid]) {
+            high = mid - 1;
+            mid = Math.floor((high + low) / 2);
+        }
+        else {
+            low = mid + 1;
+            mid = Math.floor((high + low) / 2);
+        }
+        }
+    return dataArray[mid];
+}
+
+```
